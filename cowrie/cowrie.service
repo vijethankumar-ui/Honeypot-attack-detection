@@ -1,0 +1,14 @@
+[Unit]
+Description=Cowrie SSH Honeypot
+After=network.target
+
+[Service]
+User=cowrie
+Group=cowrie
+WorkingDirectory=/home/cowrie/cowrie
+ExecStart=/home/cowrie/cowrie/cowrie-env/bin/python /home/cowrie/cowrie/bin/cowrie start
+ExecStop=/home/cowrie/cowrie/cowrie-env/bin/python /home/cowrie/cowrie/bin/cowrie stop
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
